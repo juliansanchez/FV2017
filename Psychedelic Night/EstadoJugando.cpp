@@ -59,30 +59,6 @@ void EstadoJugando::ManejarEventos(MotorJuego* juego){
                 case sf::Keyboard::Escape:
                    juego->ApilarEstado(EstadoPausa::Instance()); 
                 break;
-                case sf::Keyboard::I: 
-                    if (general->getEstado()){ 
-                        general->moverVista(0, -23*20); 
-                        niveles->visitar(niveles->getX(), niveles->getY()-1); 
-                    }
-                break;
-                case sf::Keyboard::J: 
-                    if (general->getEstado()){ 
-                        general->moverVista(-39*20, 0);
-                        niveles->visitar(niveles->getX()-1, niveles->getY()); 
-                    }
-                break;
-                case sf::Keyboard::K: 
-                    if (general->getEstado()){ 
-                        general->moverVista(0, 23*20); 
-                        niveles->visitar(niveles->getX(), niveles->getY()+1); 
-                    }
-                break;
-                case sf::Keyboard::L: 
-                    if (general->getEstado()){ 
-                        general->moverVista(39*20, 0); 
-                        niveles->visitar(niveles->getX()+1, niveles->getY());
-                    }
-                break;
                 case sf::Keyboard::W: personaje->setFlagW(true); break;
                 case sf::Keyboard::A: personaje->setFlagA(true); break;
                 case sf::Keyboard::S: personaje->setFlagS(true); break;
@@ -106,6 +82,24 @@ void EstadoJugando::ManejarEventos(MotorJuego* juego){
                 case sf::Keyboard::Right: personaje->decrementarBala(); break;              
             }
         }
+    }
+    if(general->getEstado()){ //Movimiento vistas segun personaje
+        if (personaje->getX()<niveles->getX()*39*20){
+            general->moverVista(-39*20, 0);
+            niveles->visitar(niveles->getX()-1, niveles->getY());
+        }
+        else if(personaje->getX()>(niveles->getX()+1)*39*20){
+            general->moverVista(39*20, 0); 
+            niveles->visitar(niveles->getX()+1, niveles->getY());
+        }        
+        else if (personaje->getY()<niveles->getY()*23*20){
+            general->moverVista(0, -23*20); 
+            niveles->visitar(niveles->getX(), niveles->getY()-1); 
+        }
+        else if (personaje->getY()>(niveles->getY()+1)*23*20){
+            general->moverVista(0, 23*20); 
+            niveles->visitar(niveles->getX(), niveles->getY()+1); 
+        }        
     }
 }
 
