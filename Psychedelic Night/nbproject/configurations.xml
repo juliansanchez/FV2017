@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>Bala.h</itemPath>
+      <itemPath>Coordenada.h</itemPath>
+      <itemPath>EstadoIntro.h</itemPath>
+      <itemPath>EstadoJuego.h</itemPath>
+      <itemPath>EstadoJugando.h</itemPath>
+      <itemPath>EstadoPausa.h</itemPath>
+      <itemPath>HUD.h</itemPath>
+      <itemPath>Jugador.h</itemPath>
+      <itemPath>Mapa.h</itemPath>
+      <itemPath>Menu.h</itemPath>
+      <itemPath>Minimapa.h</itemPath>
+      <itemPath>Modificador.h</itemPath>
+      <itemPath>Motor2D.h</itemPath>
+      <itemPath>MotorJuego.h</itemPath>
+      <itemPath>Nivel.h</itemPath>
+      <itemPath>Pausa.h</itemPath>
+      <itemPath>Planta.h</itemPath>
+      <itemPath>Vistas.h</itemPath>
+      <itemPath>tinystr.h</itemPath>
+      <itemPath>tinyxml.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>Bala.cpp</itemPath>
+      <itemPath>Coordenada.cpp</itemPath>
+      <itemPath>EstadoIntro.cpp</itemPath>
+      <itemPath>EstadoJugando.cpp</itemPath>
+      <itemPath>EstadoPausa.cpp</itemPath>
+      <itemPath>HUD.cpp</itemPath>
+      <itemPath>Jugador.cpp</itemPath>
+      <itemPath>Mapa.cpp</itemPath>
+      <itemPath>Menu.cpp</itemPath>
+      <itemPath>Minimapa.cpp</itemPath>
+      <itemPath>Modificador.cpp</itemPath>
+      <itemPath>Motor2D.cpp</itemPath>
+      <itemPath>MotorJuego.cpp</itemPath>
+      <itemPath>Nivel.cpp</itemPath>
+      <itemPath>Pausa.cpp</itemPath>
+      <itemPath>Planta.cpp</itemPath>
+      <itemPath>Vistas.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+      <itemPath>tinystr.cpp</itemPath>
+      <itemPath>tinyxml.cpp</itemPath>
+      <itemPath>tinyxmlerror.cpp</itemPath>
+      <itemPath>tinyxmlparser.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <itemPath>muros.tmx</itemPath>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>/usr/include/SFML</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>/usr/lib/x86_64-linux-gnu</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-graphics.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-system.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-window.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-audio.so</linkerLibFileItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="Bala.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Bala.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Coordenada.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Coordenada.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EstadoIntro.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EstadoIntro.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EstadoJuego.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EstadoJugando.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EstadoJugando.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EstadoPausa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EstadoPausa.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HUD.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HUD.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Jugador.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Jugador.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Mapa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Mapa.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Menu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Menu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Minimapa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Minimapa.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Modificador.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Modificador.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Motor2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Motor2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MotorJuego.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MotorJuego.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Nivel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Nivel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Pausa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Pausa.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Planta.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Planta.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Vistas.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Vistas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="muros.tmx" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tinystr.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tinystr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tinyxml.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tinyxml.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tinyxmlerror.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tinyxmlparser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="Bala.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Bala.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Coordenada.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Coordenada.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EstadoIntro.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EstadoIntro.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EstadoJuego.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EstadoJugando.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EstadoJugando.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="EstadoPausa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EstadoPausa.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HUD.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HUD.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Jugador.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Jugador.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Mapa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Mapa.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Menu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Menu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Minimapa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Minimapa.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Modificador.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Modificador.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Motor2D.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Motor2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MotorJuego.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MotorJuego.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Nivel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Nivel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Pausa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Pausa.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Planta.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Planta.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Vistas.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Vistas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="muros.tmx" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tinystr.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tinystr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tinyxml.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tinyxml.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tinyxmlerror.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tinyxmlparser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
