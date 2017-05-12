@@ -32,8 +32,6 @@ private:
     sf::View hud;
     sf::Font fuente;
     sf::Texture texvida;
-    float vidaactual; //ELIMINAR TRAS INCLUIR PERSONAJE
-    int vidatotal;
     vector<sf::Sprite*>* vec;
     static HUD *instanciaHUD;
 };

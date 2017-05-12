@@ -36,7 +36,7 @@ void EstadoJugando::Init(){
 
 void EstadoJugando::Limpiar(){
     delete niveles;
-    delete personaje; //ESTO PETA
+    delete personaje; 
     printf("Limpieza EstadoJugando\n");
 }
 

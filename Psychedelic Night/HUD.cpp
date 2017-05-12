@@ -13,6 +13,7 @@
 
 #include "HUD.h"
 #include "Motor2D.h"
+#include "EstadoJugando.h"
 
 HUD* HUD::instanciaHUD = 0;
 
@@ -31,11 +32,7 @@ HUD::HUD() {
     if (!texvida.loadFromFile("resources/vida.png"))
     {
         std::cerr << "Error cargando la imagen vida.png";
-    }    
-    
-    vidatotal = 4;
-    vidaactual = 2.5;
-    
+    }       
     vec = new vector<sf::Sprite*>;    
 }
 
@@ -43,6 +40,8 @@ HUD::HUD(const HUD& orig) {
 }
 
 HUD::~HUD() {
+    vec->clear();
+    delete vec;
 }
 
 HUD* HUD::Instance(){
@@ -53,11 +52,12 @@ HUD* HUD::Instance(){
 
 void HUD::dibujar(){
     Motor2D*motor2D = Motor2D::Instance();
+    EstadoJugando* estjue = EstadoJugando::Instance();
+    int vidaact = estjue->getPersonaje()->getVidaActual()/1;
+    float medvida = fmodf(estjue->getPersonaje()->getVidaActual(), 1);
     if (!vec->empty())
         vec->clear();
-    int vidaact = vidaactual/1;
-    float medvida = fmodf(vidaactual, 1);
-    for (int i = 0; i<vidatotal; i++){
+    for (int i = 0; i<estjue->getPersonaje()->getVida(); i++){
         if (i<vidaact){
             sf::Sprite* vida = new sf::Sprite(texvida);
             vida->setOrigin(15/2, 15/2);
