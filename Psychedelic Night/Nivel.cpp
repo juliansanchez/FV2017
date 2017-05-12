@@ -54,7 +54,20 @@ Nivel::Nivel(unsigned int sem){
 Nivel::Nivel(const Nivel& orig) {
 }
 
+Nivel::~Nivel() {
+    vectorenemigos->clear();
+    delete vectorenemigos;
+    delete vect;
+    for (int i = 0; i<n+5; i++){
+        delete[] visitadas[i];
+    }
+    delete[] visitadas; 
+    delete mapa;
+    delete pl;
+}
+
 void Nivel::crearMapa(){
+    vectorenemigos = new std::vector<NPC*>;
     mapa = new Mapa();
     int p = pl->getHabitaciones();
     mapa->leerMapa(p);
@@ -66,24 +79,38 @@ void Nivel::crearMapa(){
             if (matriz[i][j] == 1 || matriz[i][j] == 2 || matriz[i][j] == 4 || matriz[i][j] == 5){
                 mapa->setPosition(c, j, i);
                 c++;
-            }/*
-            if (matriz[i][j] == 5){ //Carga tesoro
+            }
+            if (matriz[i][j] == 1){
+                int r= 1 + (int) static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/5));
+                for (int q = 0; q<i; q++){
+                    int w = (int) static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(3)));
+                    vectorenemigos->push_back(new NPC(w, j, i));
+                }
+            }
+            /*
+            else if (matriz[i][j] == 5){ //Carga tesoro
                 sf::Sprite tesoro;
                 tesoro.setPosition(39*20*i + 39*20/2, 23*20*j + 23*20/2); //Lo pone en el centro de la hab
             }
             else if (matriz[i][j] == 2){
                 sf::Sprite personaje;
                 personaje.setPosition(39*20*i + 39*20/2, 23*20*j + 23*20/2);           
-            }*/
+            }
             if (matriz[i][j] == 4){
                 escalera.setPosition(39*20*i + 39*20/2, 23*20*j + 23*20/2);
-            }
+            }*/
         }
     }
 }
 
 void Nivel::dibujarNivel(){
     mapa->dibuja(pl->getHabitaciones());
+    for (int i = 0; i<vectorenemigos->size(); i++){
+        if (vectorenemigos->at(i)->getPosMatrix_x() == posx && vectorenemigos->at(i)->getPosMatrix_y() == posy){
+            vectorenemigos->at(i)->pintarDisparo();
+            vectorenemigos->at(i)->dibujarEnemigo();
+        }
+    }
 }
 
 void Nivel::aumentanivel(){   
@@ -115,6 +142,14 @@ void Nivel::imprimir(){
 
 int Nivel::getNivel(){
     return n;
+}
+
+void Nivel::actualizar(sf::Clock cl, sf::Time tim){
+    for (int i = 0; i<vectorenemigos->size(); i++){
+        if (vectorenemigos->at(i)->getPosMatrix_x() == posx && vectorenemigos->at(i)->getPosMatrix_y() == posy){
+            vectorenemigos->at(i)->accionesEnemigo(cl, tim);
+        }
+    }
 }
 
 void Nivel::rellenarHabitaciones(){

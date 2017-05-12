@@ -48,9 +48,11 @@ OBJECTFILES= \
 	${OBJECTDIR}/Modificador.o \
 	${OBJECTDIR}/Motor2D.o \
 	${OBJECTDIR}/MotorJuego.o \
+	${OBJECTDIR}/NPC.o \
 	${OBJECTDIR}/Nivel.o \
 	${OBJECTDIR}/Pausa.o \
 	${OBJECTDIR}/Planta.o \
+	${OBJECTDIR}/SpriteGame.o \
 	${OBJECTDIR}/Vistas.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/tinystr.o \
@@ -156,6 +158,11 @@ ${OBJECTDIR}/MotorJuego.o: MotorJuego.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MotorJuego.o MotorJuego.cpp
 
+${OBJECTDIR}/NPC.o: NPC.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NPC.o NPC.cpp
+
 ${OBJECTDIR}/Nivel.o: Nivel.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -170,6 +177,11 @@ ${OBJECTDIR}/Planta.o: Planta.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Planta.o Planta.cpp
+
+${OBJECTDIR}/SpriteGame.o: SpriteGame.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SpriteGame.o SpriteGame.cpp
 
 ${OBJECTDIR}/Vistas.o: Vistas.cpp 
 	${MKDIR} -p ${OBJECTDIR}

@@ -17,6 +17,7 @@
 #include <string>
 #include "Mapa.h"
 #include "Coordenada.h"
+#include "NPC.h"
 
 using namespace std;
 
@@ -24,7 +25,8 @@ class Nivel {
 public:
     Nivel();
     Nivel(unsigned int sem);
-    Nivel(const Nivel& orig);  
+    Nivel(const Nivel& orig); 
+    virtual ~Nivel();
     void aumentanivel();
     string getSemilla();
     void imprimir();
@@ -37,6 +39,7 @@ public:
     int getY();
     void setX(int x);
     void setY(int y);
+    void actualizar(sf::Clock cl, sf::Time tim);
 private:
     int n; //Nivel
     string semilla;
@@ -48,6 +51,7 @@ private:
     int posx; //Posicion del jugador en la matriz de mapas
     int posy;
     sf::Sprite escalera;
+    vector<NPC*>* vectorenemigos;
 };
 
 #endif /* NIVEL_H */

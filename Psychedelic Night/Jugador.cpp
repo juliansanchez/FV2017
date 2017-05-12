@@ -30,7 +30,7 @@ Jugador::Jugador(int x, int y) {
     this->y = y;
     
     // ATRIBUTOS
-    SPRITE_SPEED = 2;
+    SPRITE_SPEED = 8;
     velBala = 0.3;
     
     // ::: Creamos y cargamos las texturas :::

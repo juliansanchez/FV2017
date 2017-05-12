@@ -42,6 +42,10 @@ private:
     Jugador* personaje;
     sf::Clock reloj; 
     sf::Clock relojSprite;
+    sf::Clock clock1;
+    sf::Clock clock2;
+    sf::Time timeStartUpdate;
+    sf::Time tiempo;
 };
 
 #endif /* ESTADOJUGANDO_H */

@@ -18,9 +18,11 @@
       <itemPath>Modificador.h</itemPath>
       <itemPath>Motor2D.h</itemPath>
       <itemPath>MotorJuego.h</itemPath>
+      <itemPath>NPC.h</itemPath>
       <itemPath>Nivel.h</itemPath>
       <itemPath>Pausa.h</itemPath>
       <itemPath>Planta.h</itemPath>
+      <itemPath>SpriteGame.h</itemPath>
       <itemPath>Vistas.h</itemPath>
       <itemPath>tinystr.h</itemPath>
       <itemPath>tinyxml.h</itemPath>
@@ -45,9 +47,11 @@
       <itemPath>Modificador.cpp</itemPath>
       <itemPath>Motor2D.cpp</itemPath>
       <itemPath>MotorJuego.cpp</itemPath>
+      <itemPath>NPC.cpp</itemPath>
       <itemPath>Nivel.cpp</itemPath>
       <itemPath>Pausa.cpp</itemPath>
       <itemPath>Planta.cpp</itemPath>
+      <itemPath>SpriteGame.cpp</itemPath>
       <itemPath>Vistas.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>tinystr.cpp</itemPath>
@@ -148,6 +152,10 @@
       </item>
       <item path="MotorJuego.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="NPC.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NPC.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Nivel.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Nivel.h" ex="false" tool="3" flavor2="0">
@@ -159,6 +167,10 @@
       <item path="Planta.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Planta.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SpriteGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SpriteGame.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Vistas.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -255,6 +267,10 @@
       </item>
       <item path="MotorJuego.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="NPC.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NPC.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Nivel.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Nivel.h" ex="false" tool="3" flavor2="0">
@@ -266,6 +282,10 @@
       <item path="Planta.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Planta.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SpriteGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SpriteGame.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Vistas.cpp" ex="false" tool="1" flavor2="0">
       </item>
