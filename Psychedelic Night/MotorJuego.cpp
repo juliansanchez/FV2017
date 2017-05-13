@@ -73,4 +73,15 @@ void MotorJuego::Dibujar() {
     estados.back()->Dibujar(this);
 }
 
+int MotorJuego::getTam(){
+    return estados.size();
+}
 
+void MotorJuego::Reiniciar(EstadoJuego* estado){
+    while (!estados.empty()){
+	estados.back()->Limpiar();
+	estados.pop_back();
+    }
+    estados.push_back(estado);
+    estados.back()->Init();
+}

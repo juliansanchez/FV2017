@@ -19,68 +19,88 @@ Menu::Menu(float ancho, float alto) {
     if(!fuente.loadFromFile("resources/upheavtt.ttf")){
        // cerr << "Error cargando la fuente";    
     }
+    text = new vector<sf::Text*>;
     
-
-    text[0].setFont(fuente);
-    text[0].setFillColor(sf::Color::Yellow);
-    text[0].setString("Jugar");
-    text[0].setPosition(Vector2f(ancho/2.3, alto/2.3));
+    sf::Text* text0 = new sf::Text;
+    text0->setFont(fuente);
+    text0->setFillColor(sf::Color::White);
+    text0->setString("Continuar");
+    text0->setPosition(Vector2f(ancho/2.5, alto/2.5));
     
-    text[1].setFont(fuente);
-    text[1].setFillColor(sf::Color::White);
-    text[1].setString("Opciones");
-    text[1].setPosition(Vector2f(ancho/2.5, alto/1.8));
+    sf::Text* text1 = new sf::Text;
+    text1->setFont(fuente);
+    text1->setFillColor(sf::Color::Yellow);
+    text1->setString("Nueva partida");
+    text1->setPosition(Vector2f(ancho/2.7, alto/2));
+    text->push_back(text1);
     
-    text[2].setFont(fuente);
-    text[2].setFillColor(sf::Color::White);
-    text[2].setString("Salir Juego");
-    text[2].setPosition(Vector2f(ancho/2.6, alto/1.5));
+    sf::Text* text2 = new sf::Text;
+    text2->setFont(fuente);
+    text2->setFillColor(sf::Color::White);
+    text2->setString("Opciones");
+    text2->setPosition(Vector2f(ancho/2.5, alto/1.7));
+    text->push_back(text2);
     
-    
+    sf::Text* text3 = new sf::Text;
+    text3->setFont(fuente);
+    text3->setFillColor(sf::Color::White);
+    text3->setString("Salir");
+    text3->setPosition(Vector2f(ancho/2.4, alto/1.45));
+    text->push_back(text3);
+    text->push_back(text0);
     
     if (!fondo.loadFromFile("resources/menujuegoOficial.jpg")) {
         exit(0);
     }
     dibujo = new Sprite();
-     dibujo->setTexture(fondo);
-     dibujo->setPosition(0, 0);
+    dibujo->setTexture(fondo);
+    dibujo->setPosition(0, 0);
      
-     selecionarItem=0;
-    
+    selecionarItem=0;
+    act = false;
 }
 
 Menu::Menu(const Menu& orig) {
 }
 
 Menu::~Menu() {
+    while (!text->empty()){
+        delete text->back();
+        text->pop_back();
+        text->clear();
+    }
+    delete text;
 }
 
 
-void Menu::Draw(){
-   
+void Menu::Draw(){  
     Motor2D *motor2D = Motor2D::Instance();
     motor2D->pintarSprites(*dibujo);
-    for(int i=0;i<3;i++){
-        motor2D->pintarTexto(text[i]);   
+    for(int i=0;i<text->size();i++){
+        motor2D->pintarTexto(*text->at(i));   
     }
 }
 
-void Menu::MoveUp(){
-    
+void Menu::MoveUp(){   
     if(selecionarItem-1>=0){
-        text[selecionarItem].setFillColor(sf::Color::White);
+        text->at(selecionarItem)->setFillColor(sf::Color::White);
         selecionarItem--;
-        text[selecionarItem].setFillColor(sf::Color::Yellow);
-    
+        text->at(selecionarItem)->setFillColor(sf::Color::Yellow);  
     }
 }
     
-void Menu::MoveDown(){
-    
-    if(selecionarItem +1 < 3){
-        text[selecionarItem].setFillColor(sf::Color::White);
+void Menu::MoveDown(){   
+    if(selecionarItem < text->size()-1){
+        text->at(selecionarItem)->setFillColor(sf::Color::White);
         selecionarItem++;
-        text[selecionarItem].setFillColor(sf::Color::Yellow);
-    
+        text->at(selecionarItem)->setFillColor(sf::Color::Yellow);  
     }
+}
+
+void Menu::actualizar(int g){
+    if (!act && g==1){
+        delete text->back();
+        text->pop_back();
+    }
+    act = true;
 }

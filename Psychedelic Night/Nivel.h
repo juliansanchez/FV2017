@@ -33,7 +33,6 @@ public:
     void imprimir();
     void dibujarNivel();
     int getNivel();
-    void rellenarHabitaciones();
     bool **getVisitadas();
     void visitar(int i, int j);
     int getX();
@@ -49,10 +48,8 @@ private:
     Modificador *tesoro;
     bool **visitadas;
     void crearMapa();
-    vector<Coordenada*>* vect;
     int posx; //Posicion del jugador en la matriz de mapas
     int posy;
-    sf::Sprite escalera;
     vector<NPC*>* vectorenemigos;
 };
 

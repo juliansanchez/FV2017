@@ -36,8 +36,10 @@ void EstadoJugando::Init(){
 }
 
 void EstadoJugando::Limpiar(){
-    delete niveles;
-    delete personaje; 
+    if (niveles!=NULL)
+        delete niveles;
+    if (personaje!=NULL)
+        delete personaje; 
     printf("Limpieza EstadoJugando\n");
 }
 
