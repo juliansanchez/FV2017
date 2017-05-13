@@ -32,6 +32,8 @@ public:
     bool Activo() { return activo; }
     void Salir() { activo = false; }
     sf::RenderWindow* ventana;
+    int getTam();
+    void Reiniciar(EstadoJuego* estado);
 
 private:
     vector<EstadoJuego*> estados;

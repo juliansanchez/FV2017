@@ -72,14 +72,16 @@ void EstadoIntro::ManejarEventos(MotorJuego* juego){
                     aceptar.play();
                     switch (menu->GetPressedItem()){
                         case 0:
-                            juego->CambiarEstado(EstadoJugando::Instance());
+                            juego->Reiniciar(EstadoJugando::Instance());
                         break;
                         case 1:
                             std::cout<<"has pulsaldo el boton de opciones"<< std::endl;
                         break;
                         case 2:
                             juego->Salir();
-                        break;                            
+                        break; 
+                        case 3:
+                            juego->DesapilarEstado();
                     }
                 break;
             }           
@@ -88,7 +90,7 @@ void EstadoIntro::ManejarEventos(MotorJuego* juego){
 }
 
 void EstadoIntro::Actualizar(MotorJuego* juego){
-    //Lo que tenga que hacer en cada iteracion
+    menu->actualizar(juego->getTam());
 }
 
 void EstadoIntro::Dibujar(MotorJuego* juego){

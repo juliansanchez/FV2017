@@ -156,8 +156,11 @@ void Planta::anyadirtesoro (){
        int r= (int) static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/vecto->size()));
         Coordenada* gt = vecto->at(r);
         matriz[gt->getX()][gt->getY()] = 5; 
-        vecto->clear(); 
-        delete vecto;
+        while (!vecto->empty()){
+            delete vecto->back();
+            vecto->pop_back();
+            vecto->clear();
+        } 
         NHabitaciones++;
     }   
 }
@@ -170,7 +173,11 @@ void Planta::anyadirboss (){
             if (matriz[i][j]==1){
                 int dist = abs(NHab/2 - i) + abs(NHab/2 - j);
                 if (dist>distmax){
-                    vect->clear();
+                    while (!vect->empty()){
+                        delete vect->back();
+                        vect->pop_back();
+                        vect->clear();
+                    }
                     vect->push_back(new Coordenada(i,j));
                     distmax = dist;
                 }
@@ -185,7 +192,11 @@ void Planta::anyadirboss (){
         bool anyadida = false;
         Coordenada* cord = vect->at(r);
         Coordenada* origen = vect->at(r);
-        vect->clear();
+        while (!vect->empty()){
+            delete vect->back();
+            vect->pop_back();
+            vect->clear();
+        }
         compruebahabitacion (cord->getX(), cord->getY(), vect);
         if (vect->size()==0)
             matriz[cord->getX()][cord->getY()] = 4;
@@ -204,7 +215,11 @@ void Planta::anyadirboss (){
         }
         if (!anyadida) //Si no se ha podido anyadir en una posicion contigua a la posicion mas lejana, lo sustituyo por esa
             matriz[origen->getX()][origen->getY()] = 4; 
-        vect->clear();
+        while (!vect->empty()){
+            delete vect->back();
+            vect->pop_back();
+            vect->clear();
+        }
         delete vect; 
         NHabitaciones++;
     }   

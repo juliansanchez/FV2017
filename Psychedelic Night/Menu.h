@@ -27,7 +27,7 @@ public:
     Menu(float ancho, float alto);
     Menu(const Menu& orig);
     virtual ~Menu();
-    
+    void actualizar(int g);
     void Draw();
     void MoveUp();
     void MoveDown();
@@ -36,10 +36,10 @@ public:
 private:
     int selecionarItem;
     Font fuente;
-    Text text[3];
+    vector<sf::Text*>* text;
     Texture fondo;
     Sprite *dibujo;
-
+    bool act;
 };
 
 #endif /* MENU_H */

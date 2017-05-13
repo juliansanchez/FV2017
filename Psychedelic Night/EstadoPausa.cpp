@@ -77,7 +77,6 @@ void EstadoPausa::ManejarEventos(MotorJuego* juego){
 }
 
 void EstadoPausa::Actualizar(MotorJuego* juego) {
-    //Lo que tenga que actualizar en cada iteracion
 }
 
 void EstadoPausa::Dibujar(MotorJuego* juego) {

@@ -40,7 +40,11 @@ HUD::HUD(const HUD& orig) {
 }
 
 HUD::~HUD() {
-    vec->clear();
+    while (!vec->empty()){
+        delete vec->back();
+        vec->pop_back();
+        vec->clear();
+    } 
     delete vec;
 }
 
@@ -55,8 +59,11 @@ void HUD::dibujar(){
     EstadoJugando* estjue = EstadoJugando::Instance();
     int vidaact = estjue->getPersonaje()->getVidaActual()/1;
     float medvida = fmodf(estjue->getPersonaje()->getVidaActual(), 1);
-    if (!vec->empty())
+    while (!vec->empty()){
+        delete vec->back();
+        vec->pop_back();
         vec->clear();
+    } 
     for (int i = 0; i<estjue->getPersonaje()->getVida(); i++){
         if (i<vidaact){
             sf::Sprite* vida = new sf::Sprite(texvida);

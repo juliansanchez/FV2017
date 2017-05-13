@@ -56,11 +56,13 @@ Nivel::Nivel(const Nivel& orig) {
 }
 
 Nivel::~Nivel() {
-    vectorenemigos->clear();
+    while (!vectorenemigos->empty()){
+        delete vectorenemigos->back();
+        vectorenemigos->pop_back();
+        vectorenemigos->clear();
+    } 
     delete vectorenemigos;
     delete tesoro;
-    vect->clear();
-    delete vect;
     for (int i = 0; i<n+5; i++){
         delete[] visitadas[i];
     }
@@ -155,7 +157,7 @@ void Nivel::actualizar(sf::Clock cl, sf::Time tim){
     }
 }
 
-void Nivel::rellenarHabitaciones(){
+/*void Nivel::rellenarHabitaciones(){
     vect = new vector<Coordenada*>;
     int **matriz = pl->getMatriz();
     for (int i = 0; i<pl->getTam(); i++){
@@ -165,7 +167,7 @@ void Nivel::rellenarHabitaciones(){
             }
         }
     }
-}
+}*/
 
 bool **Nivel::getVisitadas(){
     return visitadas;
