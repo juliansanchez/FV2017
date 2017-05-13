@@ -13,7 +13,7 @@
 #include "Bala.h"
 #include <stdio.h>
 #include <iostream>
-
+using namespace std;
 Bala::Bala(int x,int y,int velx, int vely, float rangoDisparo) {
     // posicion de inicio de la bal que coincide con jugador
     posx = x;
@@ -42,14 +42,22 @@ Bala::Bala(int x,int y,int velx, int vely, float rangoDisparo) {
 Bala::~Bala() {}
 
 void Bala::setPosicion(int x, int y){     }
-void Bala::colisionar(){       }
+void Bala::colisionar(){   
+    
+    if(posy<=0){
+        cout<<"Toco la pared"<<endl;
+    }
+
+}
 
 void Bala::actualiza(){
     posx+=velx;
     posy+=vely;
-
+    
     if(clock.getElapsedTime().asSeconds()< rangoDisparo){
+        colisionar();
         sprite.setPosition(posx,posy);  
+        
     }
     else
         destruirBala = true;
