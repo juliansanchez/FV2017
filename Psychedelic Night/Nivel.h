@@ -19,6 +19,7 @@
 #include "Coordenada.h"
 #include "NPC.h"
 #include "Modificador.h"
+#include "Boss.h"
 
 using namespace std;
 
@@ -46,6 +47,7 @@ private:
     Planta *pl;
     Mapa *mapa;
     Modificador *tesoro;
+    Boss *boss;
     bool **visitadas;
     void crearMapa();
     int posx; //Posicion del jugador en la matriz de mapas

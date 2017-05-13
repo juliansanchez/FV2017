@@ -15,15 +15,21 @@
 #include <time.h> //Para la semilla
 //#include <string>
 #include "Nivel.h"
+#include <sstream>
 
 
 using namespace std;
 
 Nivel::Nivel() {
     unsigned int e = static_cast <unsigned> (time(0));
-    semilla = to_string(e);
-    unsigned int semi = stoi(semilla);
-    srand (semi);
+    //semilla = to_string(e);
+    //unsigned int semi = stoi(semilla);
+    stringstream convert;
+    string result;
+    convert<<e;
+    result=convert.str();
+    semilla=result;
+    srand (e);
     n = 1;
     pl = new Planta(n+5);
     posx = (n+5)/2;
@@ -38,7 +44,12 @@ Nivel::Nivel() {
 }
 
 Nivel::Nivel(unsigned int sem){
-    semilla = to_string(sem);
+    //semilla = to_string(sem);
+    stringstream convert;
+    string result;
+    convert<<sem;
+    result=convert.str();
+    semilla=result;
     srand(sem);
     n = 1;
     pl = new Planta(n+5);
@@ -99,10 +110,11 @@ void Nivel::crearMapa(){
                 if (b>=0.5) tipo = 1;
                 else tipo = 2;
                 tesoro = new Modificador (39*20*j + 39*20/2, 23*20*i + 23*20/2, tipo);
-            }/*
+            }
               else if (matriz[i][j] == 4){
-                escalera.setPosition(39*20*i + 39*20/2, 23*20*j + 23*20/2);
-            }*/
+                //escalera.setPosition(39*20*i + 39*20/2, 23*20*j + 23*20/2);
+                  boss= new Boss(j,i);
+            }
         }
     }
 }
@@ -116,6 +128,7 @@ void Nivel::dibujarNivel(){
         }
     }
     tesoro->pintar();
+    boss->dibujarBoss();
 }
 
 void Nivel::aumentanivel(){   
@@ -155,6 +168,7 @@ void Nivel::actualizar(sf::Clock cl, sf::Time tim){
             vectorenemigos->at(i)->accionesEnemigo(cl, tim);
         }
     }
+    boss->movBoss();
 }
 
 /*void Nivel::rellenarHabitaciones(){
