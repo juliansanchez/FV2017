@@ -107,6 +107,35 @@ NPC::NPC(int tipo, int posX, int posY) {
         this->numCambio=12;
     }
     
+    if(tipo==13){
+        Texture *textura13;
+        textura13 = new Texture();
+        if (!textura13->loadFromFile("resources/mosquito2.png")) {
+            cerr << "Error cargando la imagen";
+            exit(0);
+        }
+        
+        SpriteGame m(*textura13,7,25,10,19);
+        SpriteGame m2(*textura13,41,53,5,19);
+        this->enemy=new SpriteGame*[2];
+
+       
+         
+        this->enemigo= new Sprite*[2];
+        this->enemigo[0]= new Sprite ();
+        this->enemigo[1]= new Sprite ();
+        *this->enemigo[0]=m.GetSprite();
+        *this->enemigo[1]=m2.GetSprite();
+        
+        this->enemigo[0]->setScale(2,2);
+        this->enemigo[1]->setScale(2,2);
+        
+        
+        this->num_sprites=2;
+        this->numCambio=2;
+        this->angle=0;
+    }
+    
     this->cambio_sprite=0;
     this->dispara=0;
     this->velx = 0;
@@ -282,7 +311,7 @@ void NPC::accionesEnemigo(Clock reloj2, Time tiempo){
     if(tipo==0){
         this->movTopo(tiempo,contadorvueltas);
     }
-    if(tipo==2){
+    if(tipo==2 || tipo==13){
         if(contadorvueltas%49==0){  
             this->DisparoEnemigo(reloj2);
         }
