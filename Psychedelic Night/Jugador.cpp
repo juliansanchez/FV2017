@@ -74,7 +74,7 @@ void Jugador::crearbala(){
     velx = 0;
     vely = 0;
     // distancia a la dispara 
-    rangoDisparo = 1.5;  
+    rangoDisparo = 8;  
     // centinela para conocer direccion de disparo
     dispara = 0;
     // control direccion de disparo
