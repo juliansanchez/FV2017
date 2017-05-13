@@ -168,7 +168,7 @@ void Nivel::actualizar(sf::Clock cl, sf::Time tim){
             vectorenemigos->at(i)->accionesEnemigo(cl, tim);
         }
     }
-    boss->movBoss();
+    boss->movBoss(cl,tim);
 }
 
 /*void Nivel::rellenarHabitaciones(){

@@ -22,17 +22,17 @@ Pausa::Pausa(float ancho, float alto) {
        // cerr << "Error cargando la fuente";  
     }
     text[0].setFont(fuente);
-    text[0].setFillColor(sf::Color::Yellow);
+    text[0].setColor(sf::Color::Yellow);
     text[0].setString("Continuar");
     text[0].setPosition(sf::Vector2f(ancho/2.6, alto/2.3));
     
     text[1].setFont(fuente);
-    text[1].setFillColor(sf::Color::White);
+    text[1].setColor(sf::Color::White);
     text[1].setString("Opciones");
     text[1].setPosition(sf::Vector2f(ancho/2.5, alto/1.8));
     
     text[2].setFont(fuente);
-    text[2].setFillColor(sf::Color::White);
+    text[2].setColor(sf::Color::White);
     text[2].setString("Salir menu");
     text[2].setPosition(sf::Vector2f(ancho/2.6, alto/1.5));
     
@@ -40,7 +40,7 @@ Pausa::Pausa(float ancho, float alto) {
     Nivel* n = estjue->getNiveles();
     
     text[3].setFont(fuente);
-    text[3].setFillColor(sf::Color::Green);
+    text[3].setColor(sf::Color::Green);
     text[3].setString("SEED: " + n->getSemilla());
     text[3].setCharacterSize(45);
     text[3].setPosition(sf::Vector2f(ancho/3.5, alto/4));
@@ -66,17 +66,17 @@ void Pausa::Draw(){
 
 void Pausa::MoveUp(){   
     if(selecionarItem-1>=0){
-        text[selecionarItem].setFillColor(sf::Color::White);
+        text[selecionarItem].setColor(sf::Color::White);
         selecionarItem--;
-        text[selecionarItem].setFillColor(sf::Color::Yellow);    
+        text[selecionarItem].setColor(sf::Color::Yellow);    
     }
 }
     
 void Pausa::MoveDown(){   
     if(selecionarItem +1 < 3){
-        text[selecionarItem].setFillColor(sf::Color::White);
+        text[selecionarItem].setColor(sf::Color::White);
         selecionarItem++;
-        text[selecionarItem].setFillColor(sf::Color::Yellow);    
+        text[selecionarItem].setColor(sf::Color::Yellow);    
     }
 }
 
