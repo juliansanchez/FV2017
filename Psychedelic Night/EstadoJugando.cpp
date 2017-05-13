@@ -22,6 +22,16 @@
 
 EstadoJugando EstadoJugando::estjugando;
 
+
+/*Motor2D* Motor2D::Instance(){ 
+    
+    if(instanciaEstadoJugando == 0){
+        instanciaEstadoJugando = new EstadoJugando;
+    }
+   
+    return instanciaEstadoJugando;
+}*/
+
 void EstadoJugando::Init(){
     niveles = new Nivel();
     Vistas* general = Vistas::Instance();

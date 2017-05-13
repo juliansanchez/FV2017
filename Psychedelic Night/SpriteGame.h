@@ -32,6 +32,8 @@ public:
     void Init();
     void Mover(float x, float y);
     void Espejo();
+    float getAncho();
+    float getAlto();
     
 
 private:

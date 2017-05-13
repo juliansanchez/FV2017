@@ -20,6 +20,7 @@
 
 class EstadoJugando : public EstadoJuego {
 public:
+    //static EstadoJugando *Instance();
     void Init();
     void Limpiar();
     void Pausar();
@@ -27,6 +28,7 @@ public:
     void ManejarEventos(MotorJuego* juego);
     void Actualizar(MotorJuego* juego);
     void Dibujar(MotorJuego* juego);
+    
     static EstadoJugando* Instance(){
 	return &estjugando;
     }
@@ -37,6 +39,7 @@ protected:
     EstadoJugando() { }
 
 private:
+    static EstadoJugando *instanciaEstadoJugando;
     static EstadoJugando estjugando;
     Nivel* niveles;
     Jugador* personaje;

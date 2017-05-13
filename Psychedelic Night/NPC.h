@@ -20,6 +20,7 @@
 #include "Motor2D.h"
 #include "Bala.h"
 
+
 using namespace std;
 using namespace sf;
 
@@ -33,8 +34,8 @@ public:
     void movMosquito();
     void movTopo(Time tiempo, int cont_vueltas);
     void dibujarEnemigo();
-    float getX();
-    float getY();
+    int getX();
+    int getY();
     void DisparoEnemigo(Clock clockbala);
     void ActualizarDisparo();
     vector<Bala*>  GetBala();
@@ -43,6 +44,7 @@ public:
     int getTipo();
     int getPosMatrix_x();
     int getPosMatrix_y();
+    void colisionPersonaje();
     
 private:
     int tipo;
@@ -65,6 +67,11 @@ private:
     
     int posMatrix_x;
     int posMatrix_y;
+    
+    float ancho;
+    float alto;
+    
+    bool colision;
     
 
 };

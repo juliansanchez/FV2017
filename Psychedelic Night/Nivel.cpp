@@ -15,6 +15,7 @@
 #include <time.h> //Para la semilla
 //#include <string>
 #include "Nivel.h"
+#include "EstadoJugando.h"
 #include <sstream>
 
 
@@ -163,12 +164,18 @@ int Nivel::getNivel(){
 }
 
 void Nivel::actualizar(sf::Clock cl, sf::Time tim){
+    Motor2D* motor2D = Motor2D::Instance();
+    EstadoJugando* estandoJugando= EstadoJugando::Instance();
     for (int i = 0; i<vectorenemigos->size(); i++){
         if (vectorenemigos->at(i)->getPosMatrix_x() == posx && vectorenemigos->at(i)->getPosMatrix_y() == posy){
             vectorenemigos->at(i)->accionesEnemigo(cl, tim);
+            vectorenemigos->at(i)->colisionPersonaje();
         }
     }
+    if (boss->getPosMatrix_x() == posx && boss->getPosMatrix_y() == posy){
     boss->movBoss(cl,tim);
+    }
+    tesoro->colisionObjeto(estandoJugando->getPersonaje());
 }
 
 /*void Nivel::rellenarHabitaciones(){

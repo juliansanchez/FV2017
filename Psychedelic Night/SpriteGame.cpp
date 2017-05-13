@@ -78,6 +78,15 @@ void SpriteGame::Espejo(){
 }
 
 
+float SpriteGame::getAncho(){
+    return dimension.x;
+}
+float SpriteGame::getAlto(){
+    return dimension.y;
+}
+
+
+
 
 SpriteGame::SpriteGame(const SpriteGame& orig) {
 }

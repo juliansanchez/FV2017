@@ -12,6 +12,7 @@
  */
 
 #include "NPC.h"
+#include "EstadoJugando.h"
 
 
 
@@ -36,6 +37,9 @@ NPC::NPC(int tipo, int posX, int posY) {
         SpriteGame t4(*textura1,35,60,32,63);
         SpriteGame t5(*textura1,67,92,32,63);
         SpriteGame t6(*textura1,3,28,64,95);
+        
+        
+        
 
         this->enemigo=new Sprite*[8];
         for(int i=0; i<8;i++){
@@ -49,6 +53,9 @@ NPC::NPC(int tipo, int posX, int posY) {
         *this->enemigo[5]=t2.GetSprite();
         *this->enemigo[6]=t6.GetSprite();
         *this->enemigo[7]=t2.GetSprite();
+        
+        this->alto= t.getAlto();
+        this->ancho=t.getAncho();
         
         this->num_sprites=8;
         this->numCambio=4; 
@@ -68,7 +75,8 @@ NPC::NPC(int tipo, int posX, int posY) {
         SpriteGame m2(*textura2,41,53,5,19);
         this->enemy=new SpriteGame*[2];
 
-       
+        this->alto= m.getAlto();
+        this->ancho=m.getAncho();
          
         this->enemigo= new Sprite*[2];
         this->enemigo[0]= new Sprite ();
@@ -102,6 +110,8 @@ NPC::NPC(int tipo, int posX, int posY) {
         *this->enemigo[1]=c1.GetSprite();
         *this->enemigo[2]=c2.GetSprite();
         *this->enemigo[3]=c3.GetSprite();
+        this->alto= c.getAlto();
+        this->ancho=c.getAncho();
         
         this->num_sprites=4;
         this->numCambio=12;
@@ -129,6 +139,8 @@ NPC::NPC(int tipo, int posX, int posY) {
         
         this->enemigo[0]->setScale(2,2);
         this->enemigo[1]->setScale(2,2);
+        this->alto= m.getAlto();
+        this->ancho=m.getAncho();
         
         
         this->num_sprites=2;
@@ -167,14 +179,25 @@ void NPC::movMosquito(){
     //float distancia, distancia_x,distancia_y;
     float lenght=0;
     float x,y;
+    float distancia_x,distancia_y,distancia;
     
+    EstadoJugando* estandoJugando= EstadoJugando::Instance();
+    
+    distancia_x= (this->getX()) - (estandoJugando->getPersonaje()->getX());
+    distancia_y= (this->getY()) - (estandoJugando->getPersonaje()->getY());
+    distancia= sqrt(pow(distancia_x,2)+pow(distancia_x,2) );
 
+    if(distancia>200){
     angle+=0.1;
     x= (2*cos(angle)+ lenght);
     y= (2*sin(angle)+lenght);
     enemigo[0]->move(x,y);
     enemigo[1]->move(x,y);
-    
+    }else{
+       enemigo[0]->move(-distancia_x/15,-distancia_y/15);
+       enemigo[1]->move(-distancia_x/15,-distancia_y/15);
+        
+    }
     
     
     /* CODIGO PARA PERSEGUIR PERSONAJE (HACER PARA VER X E Y PERSONAJE)
@@ -182,7 +205,7 @@ void NPC::movMosquito(){
         distancia_y= m.GetSprite().getPosition().y-p.GetSprite().getPosition().y;
         distancia= sqrt(pow(distancia_x,2)+pow(distancia_x,2) );
         
-        if(distancia>150){
+        
             angle+=0.1;
             x= (2*cos(angle)+ lenght);
             y= (2*sin(angle)+lenght);
@@ -321,14 +344,66 @@ void NPC::accionesEnemigo(Clock reloj2, Time tiempo){
     contadorvueltas++;
 }
 
+void NPC::colisionPersonaje(){
+    
+     EstadoJugando* estandoJugando= EstadoJugando::Instance();
+     /*
+    cout<<"personaje x"<<estandoJugando->getPersonaje()->getX()<<endl;
+    cout<<"personaje y"<<estandoJugando->getPersonaje()->getY()<<endl;
+    
+    cout<<"enemigo x"<<this->getX()<<endl;
+    cout<<"enemigo y"<<this->getY()<<endl;
+    */
+     
+    if((estandoJugando->getPersonaje()->getX()+32) > (this->getX()-ancho/4)&&  
+            (estandoJugando->getPersonaje()->getY()+42) > (this->getY()-alto/4) &&
+            (this->getX()+ancho/1.5)> (estandoJugando->getPersonaje()->getX()) &&
+            (this->getY()+alto/1.5)> (estandoJugando->getPersonaje()->getY())){
+         
+         estandoJugando->getPersonaje()->quitarVida();
+         cout<<estandoJugando->getPersonaje()->getVidaActual()<<endl; 
+    }
+     
+     /*
+    if((estandoJugando->getPersonaje()->getX()+32) >= (this->getX()-ancho/2)  
+            && (estandoJugando->getPersonaje()->getY()+42) > (this->getY()-alto/2) &&
+            (this->getX()-ancho/2)> (estandoJugando->getPersonaje()->getX()+32) &&
+            (this->getY()-alto/2)> (estandoJugando->getPersonaje()->getY()+32)){
+         
+         estandoJugando->getPersonaje()->quitarVida();
+         cout<<estandoJugando->getPersonaje()->getVidaActual()<<endl;
+     
+     }
+     
+      if((estandoJugando->getPersonaje()->getX()+32) >= (this->getX()-ancho/2) && (this->getX()-ancho/2)>= (estandoJugando->getPersonaje()->getX())){
+          estandoJugando->getPersonaje()->quitarVida();
+         cout<<estandoJugando->getPersonaje()->getVidaActual()<<endl;
+      
+      }
+     
+     */
+     
+     /*
+     if((estandoJugando->getPersonaje()->getX()+32) >= (this->getX()-ancho/2)
+        || (this->getX()-ancho/2)>= (estandoJugando->getPersonaje()->getX()+32)){
+         
+        // estandoJugando->getPersonaje()->quitarVida();
+         cout<<estandoJugando->getPersonaje()->getVidaActual()<<endl;
+         cout<<"LOOOOOOCCCCOOOOOO"<<endl;
+     
+     }
+     */
+
+}
 
 
 
-float NPC::getX(){
+
+int NPC::getX(){
     return enemigo[cambio_sprite]->getPosition().x;
 }
 
-float NPC::getY(){
+int NPC::getY(){
     return enemigo[cambio_sprite]->getPosition().y;
     
 }

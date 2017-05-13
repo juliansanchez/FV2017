@@ -11,10 +11,14 @@
  * Created on 1 de mayo de 2017, 11:47
  */
 #include <SFML/Graphics.hpp>
-#include "Motor2D.h"
+#include <SFML/Graphics/Sprite.hpp>
 #include <iostream>
+#include "Motor2D.h"
 #include <vector>
 #include "Jugador.h"
+
+using namespace sf;
+using namespace std;
 
 #ifndef MODIFICADOR_H
 #define MODIFICADOR_H
@@ -41,7 +45,7 @@ private:
     
     float escala;
     
-    sf::Sprite modificador;
+    sf::Sprite *modificador;
     sf::Texture texture;
     sf::Rect<float> hitbox;
 

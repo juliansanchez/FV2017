@@ -31,11 +31,13 @@ Modificador::Modificador(int x, int y, int tipo) {
     this->x= x;
     this->y = y;
     
-    modificador.setTexture(texture);
-    modificador.setOrigin(tamSprite/2,tamSprite/2);
-    modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, tamSprite, tamSprite));  
-    modificador.setPosition(x, y);   
-    modificador.setScale(escala,escala); 
+    modificador= new Sprite();
+    
+    modificador->setTexture(texture);
+    modificador->setOrigin(tamSprite/2,tamSprite/2);
+    modificador->setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, tamSprite, tamSprite));  
+    modificador->setPosition(x, y);   
+    modificador->setScale(escala,escala); 
     
 }
 
@@ -54,11 +56,11 @@ Modificador::Modificador(int x, int y, sf::Clock relojBomba) {
         std::cerr << "Error while loading texture modificador" << std::endl;
     }
     
-    modificador.setTexture(texture);
-    modificador.setOrigin(tamSprite/2,tamSprite/2);
-    modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, tamSprite, tamSprite));  
-    modificador.setPosition(x, y);   
-    modificador.setScale(escala,escala); 
+    modificador->setTexture(texture);
+    modificador->setOrigin(tamSprite/2,tamSprite/2);
+    modificador->setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, tamSprite, tamSprite));  
+    modificador->setPosition(x, y);   
+    modificador->setScale(escala,escala); 
     
 }
 
@@ -68,7 +70,8 @@ Modificador::Modificador(const Modificador& orig) {
 }
 
 Modificador::~Modificador() {
-    
+    delete modificador;
+    cout<<"SE ESTA BORRANDO"<<endl;
 }
 
 
@@ -94,7 +97,7 @@ void Modificador::Modificacion(Jugador* j){
 
 void Modificador::pintar(){
     Motor2D*motor2D = Motor2D::Instance();
-    motor2D->pintarSprites(modificador);
+    motor2D->pintarSprites(*modificador);
    
 }
 
@@ -115,10 +118,9 @@ void Modificador::colisionObjeto(Jugador *j){
                 j->aumentarVida();
                 j->aumentarVidaActual();
             }
-            
-            // Esto es una chapuza, hay que eliminar el objeto
-            modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, 0, 0)); 
-            modificador.setPosition(0, 0);
+
+             
+            this->~Modificador();
     }
 
 }
@@ -133,8 +135,8 @@ void Modificador::cogerBomba(Jugador *j){
                        
             j->anyadirBomba();
             // Esto es una chapuza, hay que eliminar el objeto
-            modificador.setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, 0, 0)); 
-            modificador.setPosition(0, 0);
+            modificador->setTextureRect(sf:: IntRect(0*tamSprite, 0*tamSprite, 0, 0)); 
+            modificador->setPosition(0, 0);
      
     }
 

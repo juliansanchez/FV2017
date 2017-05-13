@@ -40,7 +40,7 @@ Boss::Boss(int posX, int posY) {
     *this->enemigo[3]=c3.GetSprite();
     
     for(int i=0; i<4;i++){
-        this->enemigo[i]->setScale(3.5,3.5);
+        this->enemigo[i]->setScale(2,2);
      }
     
     this->num_sprites=4;
@@ -142,7 +142,7 @@ void Boss::movBoss(Clock clock2, Time tiempo){
         if(retraso2==18){
             cambio_sprite=3;
             for(int i=0;i<3;i++){
-                bicho->push_back(new NPC(13,3,3));
+                bicho->push_back(new NPC(13,posMatrix_x*39*20 + 39*20/2,posMatrix_y*23*20 + 23*20/2));
                 //posMatrix_x*39*20 + 39*20/2
                 //posMatrix_y*23*20 + 23*20/2
             }
