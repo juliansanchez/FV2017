@@ -17,12 +17,10 @@ using namespace std;
 Modificador::Modificador(int x, int y, int tipo) {
     
     if(tipo == 1 && texture.loadFromFile("resources/seta.png")){
-        cout<<"es una seta"<<endl;
         this->tipo=tipo;
     }
     
     if(tipo == 2 && texture.loadFromFile("resources/jeringa.png")){
-        cout<<"es una seta"<<endl;
         this->tipo=tipo;
     }
     colision = false;

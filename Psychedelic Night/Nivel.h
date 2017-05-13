@@ -18,6 +18,7 @@
 #include "Mapa.h"
 #include "Coordenada.h"
 #include "NPC.h"
+#include "Modificador.h"
 
 using namespace std;
 
@@ -45,6 +46,7 @@ private:
     string semilla;
     Planta *pl;
     Mapa *mapa;
+    Modificador *tesoro;
     bool **visitadas;
     void crearMapa();
     vector<Coordenada*>* vect;

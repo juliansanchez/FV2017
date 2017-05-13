@@ -16,6 +16,7 @@
 //#include <string>
 #include "Nivel.h"
 
+
 using namespace std;
 
 Nivel::Nivel() {
@@ -57,6 +58,8 @@ Nivel::Nivel(const Nivel& orig) {
 Nivel::~Nivel() {
     vectorenemigos->clear();
     delete vectorenemigos;
+    delete tesoro;
+    vect->clear();
     delete vect;
     for (int i = 0; i<n+5; i++){
         delete[] visitadas[i];
@@ -67,6 +70,7 @@ Nivel::~Nivel() {
 }
 
 void Nivel::crearMapa(){
+    imprimir();
     vectorenemigos = new std::vector<NPC*>;
     mapa = new Mapa();
     int p = pl->getHabitaciones();
@@ -86,17 +90,15 @@ void Nivel::crearMapa(){
                     int w = (int) static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(3)));
                     vectorenemigos->push_back(new NPC(w, j, i));
                 }
-            }
-            /*
+            }            
             else if (matriz[i][j] == 5){ //Carga tesoro
-                sf::Sprite tesoro;
-                tesoro.setPosition(39*20*i + 39*20/2, 23*20*j + 23*20/2); //Lo pone en el centro de la hab
-            }
-            else if (matriz[i][j] == 2){
-                sf::Sprite personaje;
-                personaje.setPosition(39*20*i + 39*20/2, 23*20*j + 23*20/2);           
-            }
-            if (matriz[i][j] == 4){
+                int tipo = 0;
+                float b = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX));
+                if (b>=0.5) tipo = 1;
+                else tipo = 2;
+                tesoro = new Modificador (39*20*j + 39*20/2, 23*20*i + 23*20/2, tipo);
+            }/*
+              else if (matriz[i][j] == 4){
                 escalera.setPosition(39*20*i + 39*20/2, 23*20*j + 23*20/2);
             }*/
         }
@@ -111,6 +113,7 @@ void Nivel::dibujarNivel(){
             vectorenemigos->at(i)->dibujarEnemigo();
         }
     }
+    tesoro->pintar();
 }
 
 void Nivel::aumentanivel(){   

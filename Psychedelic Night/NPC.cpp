@@ -120,6 +120,7 @@ NPC::NPC(const NPC& orig) {
 }
 
 NPC::~NPC() {
+    
 }
 
 int NPC::getTipo(){
