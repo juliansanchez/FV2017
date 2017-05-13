@@ -74,7 +74,7 @@ void Jugador::crearbala(){
     velx = 0;
     vely = 0;
     // distancia a la dispara 
-    rangoDisparo = 8;  
+    rangoDisparo = 1.3;  
     // centinela para conocer direccion de disparo
     dispara = 0;
     // control direccion de disparo
@@ -184,10 +184,10 @@ void Jugador::disparar(){
         int vely = 0;
 
         // variables para disparo diagonal 
-        if (leftFlag) velx = -3;
-        else if(rightFlag) velx = 3;
-        if (upFlag) vely = -3;
-        else if(downFlag) vely = 3;
+        if (leftFlag) velx = -12;
+        else if(rightFlag) velx = 12;
+        if (upFlag) vely = -12;
+        else if(downFlag) vely = 12;
 
         // comprobamos direccion de disparo y cargamos posicion de textura
         switch (direccionDisparo){
@@ -197,7 +197,7 @@ void Jugador::disparar(){
                 // cout<<"antes : "<<clock.getElapsedTime().asSeconds()<<endl;
                 if(clock.getElapsedTime().asSeconds() > velBala){ 
                     // creamos una nueva bala y la metemos en el vector
-                    balas->push_back(new Bala(x,y-30,velx,-3,rangoDisparo));
+                    balas->push_back(new Bala(x,y-30,velx,-12,rangoDisparo));
                     clock.restart(); 
                 }
             break;
@@ -205,7 +205,7 @@ void Jugador::disparar(){
             case Abajo:
                 cabeza.setTextureRect(sf::IntRect(1*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                 if(clock.getElapsedTime().asSeconds() > velBala){
-                    balas->push_back(new Bala(x,y+50,velx,3,rangoDisparo));
+                    balas->push_back(new Bala(x,y+50,velx,12,rangoDisparo));
                     clock.restart();
                 }
             break;
@@ -213,7 +213,7 @@ void Jugador::disparar(){
                 cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite)); 
                 cabeza.setScale(escala,escala);
                 if(clock.getElapsedTime().asSeconds() > velBala){
-                    balas->push_back(new Bala(x+35,y,3,vely,rangoDisparo));
+                    balas->push_back(new Bala(x+35,y,12,vely,rangoDisparo));
                     clock.restart();
                 }
             break;
@@ -222,7 +222,7 @@ void Jugador::disparar(){
                 //Reflejo vertical
                 cabeza.setScale(-escala,escala);
                 if(clock.getElapsedTime().asSeconds() > velBala){
-                    balas->push_back(new Bala(x-35,y,-3,vely,rangoDisparo));
+                    balas->push_back(new Bala(x-35,y,-12,vely,rangoDisparo));
                     clock.restart();
                 }
             break;
@@ -265,8 +265,6 @@ int Jugador::getY(){
     return y;
 }
 
-
-
 void Jugador:: anyadirBomba(){
     numBombas++;
 }
@@ -287,7 +285,7 @@ void Jugador:: aumentarDanyo(){
 }
 void Jugador:: aumentarVidaActual(){
     vidaActual = vidaActual+1;
-    cabeza.setColor(sf::Color::Red);
+    // cabeza.setColor(sf::Color::Red);
     
 }
 void Jugador:: aumentarVida(){

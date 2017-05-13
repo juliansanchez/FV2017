@@ -18,7 +18,7 @@ Bala::Bala(int x,int y,int velx, int vely, float rangoDisparo) {
     // posicion de inicio de la bal que coincide con jugador
     posx = x;
     posy = y;
-    // dirección y velocidad de la bala
+    // direcc+ión y velocidad de la bala
     this->velx=velx;
     this->vely=vely;
     this->rangoDisparo = rangoDisparo;
