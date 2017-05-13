@@ -17,6 +17,8 @@ Boss::Boss(int posX, int posY) {
     this->posMatrix_x= posX;
     this->posMatrix_y=posY;
     
+      
+    
     Texture *textura3;
     textura3 = new Texture();
     if (!textura3->loadFromFile("resources/boss.png")) {
@@ -40,7 +42,7 @@ Boss::Boss(int posX, int posY) {
     for(int i=0; i<4;i++){
         this->enemigo[i]->setScale(3.5,3.5);
      }
-
+    
     this->num_sprites=4;
     this->numCambio=16;
     this->cambio_sprite=0;   
@@ -51,6 +53,11 @@ Boss::Boss(int posX, int posY) {
     retraso2=7;
     balas= new std::vector<Bala*>;
     bicho=new std::vector<NPC*>;
+    int initX =posMatrix_x*39*20 + 39*20/2 ;
+    int initY =posMatrix_y*23*20 + 23*20/2 ;
+    for(int i=0;i<num_sprites;i++){
+        this->enemigo[i]->setPosition(initX,initY);
+    } 
     
 }
 
@@ -136,6 +143,8 @@ void Boss::movBoss(Clock clock2, Time tiempo){
             cambio_sprite=3;
             for(int i=0;i<3;i++){
                 bicho->push_back(new NPC(13,3,3));
+                //posMatrix_x*39*20 + 39*20/2
+                //posMatrix_y*23*20 + 23*20/2
             }
             for(int i = bicho->size()-3 ; i<bicho->size(); i++){
                 if(bicho->at(i)){
