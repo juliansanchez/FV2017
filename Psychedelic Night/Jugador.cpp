@@ -184,10 +184,10 @@ void Jugador::disparar(){
         int vely = 0;
 
         // variables para disparo diagonal 
-        if (leftFlag) velx = -12;
-        else if(rightFlag) velx = 12;
-        if (upFlag) vely = -12;
-        else if(downFlag) vely = 12;
+        if (leftFlag) velx = -16;
+        else if(rightFlag) velx = 16;
+        if (upFlag) vely = -16;
+        else if(downFlag) vely = 16;
 
         // comprobamos direccion de disparo y cargamos posicion de textura
         switch (direccionDisparo){
@@ -197,7 +197,7 @@ void Jugador::disparar(){
                 // cout<<"antes : "<<clock.getElapsedTime().asSeconds()<<endl;
                 if(clock.getElapsedTime().asSeconds() > velBala){ 
                     // creamos una nueva bala y la metemos en el vector
-                    balas->push_back(new Bala(x,y-30,velx,-12,rangoDisparo));
+                    balas->push_back(new Bala(x,y-15,velx,-16,rangoDisparo));
                     clock.restart(); 
                 }
             break;
@@ -205,7 +205,7 @@ void Jugador::disparar(){
             case Abajo:
                 cabeza.setTextureRect(sf::IntRect(1*tamSprite, 0*tamSprite, tamSprite, tamSprite));
                 if(clock.getElapsedTime().asSeconds() > velBala){
-                    balas->push_back(new Bala(x,y+50,velx,12,rangoDisparo));
+                    balas->push_back(new Bala(x,y+25,velx,16,rangoDisparo));
                     clock.restart();
                 }
             break;
@@ -213,7 +213,7 @@ void Jugador::disparar(){
                 cabeza.setTextureRect(sf::IntRect(2*tamSprite, 0*tamSprite, tamSprite, tamSprite)); 
                 cabeza.setScale(escala,escala);
                 if(clock.getElapsedTime().asSeconds() > velBala){
-                    balas->push_back(new Bala(x+35,y,12,vely,rangoDisparo));
+                    balas->push_back(new Bala(x+20,y,16,vely,rangoDisparo));
                     clock.restart();
                 }
             break;
@@ -222,7 +222,7 @@ void Jugador::disparar(){
                 //Reflejo vertical
                 cabeza.setScale(-escala,escala);
                 if(clock.getElapsedTime().asSeconds() > velBala){
-                    balas->push_back(new Bala(x-35,y,-12,vely,rangoDisparo));
+                    balas->push_back(new Bala(x-20,y,-16,vely,rangoDisparo));
                     clock.restart();
                 }
             break;
