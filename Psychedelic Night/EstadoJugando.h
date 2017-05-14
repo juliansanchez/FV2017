@@ -39,7 +39,7 @@ protected:
     EstadoJugando() { }
 
 private:
-    static EstadoJugando *instanciaEstadoJugando;
+    //static EstadoJugando *instanciaEstadoJugando;
     static EstadoJugando estjugando;
     Nivel* niveles;
     Jugador* personaje;

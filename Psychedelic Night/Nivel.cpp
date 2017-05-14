@@ -75,6 +75,7 @@ Nivel::~Nivel() {
     } 
     delete vectorenemigos;
     delete tesoro;
+    delete boss;
     for (int i = 0; i<n+5; i++){
         delete[] visitadas[i];
     }
